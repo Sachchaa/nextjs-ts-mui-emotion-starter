@@ -1,13 +1,22 @@
 import { Container, Typography } from "@mui/material";
-import { styled } from "@mui/system";
+import { Box, styled } from "@mui/system";
 import type { NextPage } from "next";
 import Head from "next/head";
+import theme from "../styles/theme";
 
 const Wrapper = styled(Container)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
+}));
+
+const HeaderWrapper = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: "16px",
   backgroundColor: theme.palette.primary.main,
 }));
 
@@ -25,9 +34,24 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Wrapper>
-        <Header variant="h2" sx={{}}>
-          This is a sample text!
-        </Header>
+        <HeaderWrapper>
+          <Header variant="h2">This is a sample header!</Header>
+        </HeaderWrapper>
+        <Typography
+          sx={{
+            color: theme.palette.text.primary,
+            textAlign: "center",
+            marginTop: "32px",
+          }}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec
+          massa et magna feugiat placerat. Pellentesque interdum fermentum est,
+          a convallis dui feugiat vitae. Phasellus eget quam posuere, auctor
+          justo vitae, pretium magna. Praesent facilisis blandit condimentum.
+          Curabitur pulvinar vitae nulla ut iaculis. Praesent non iaculis est.
+          In a feugiat metus. Aenean et ullamcorper arcu. Nulla semper diam vel
+          scelerisque vulputate.
+        </Typography>
       </Wrapper>
     </>
   );
