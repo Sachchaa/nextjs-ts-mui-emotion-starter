@@ -3,13 +3,18 @@ import { styled } from "@mui/system";
 import type { NextPage } from "next";
 import Head from "next/head";
 
-const Wrapper = styled(Container)({
+const Wrapper = styled(Container)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  backgroundColor: "#00b4d8",
-});
+  backgroundColor: theme.palette.primary.main,
+}));
+
+const Header = styled(Typography)(({ theme }) => ({
+  fontWeight: 500,
+  color: theme.palette.text.secondary,
+}));
 
 const Home: NextPage = () => {
   return (
@@ -20,9 +25,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Wrapper>
-        <Typography variant="h2" sx={{ fontWeight: "bold" }}>
+        <Header variant="h2" sx={{}}>
           This is a sample text!
-        </Typography>
+        </Header>
       </Wrapper>
     </>
   );
